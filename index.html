@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediConsulta – Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <h2>🩺 MediConsulta</h2>
+    <a href="index.html" class="active">📊 Dashboard</a>
+    <a href="#">📅 Citas</a>
+    <a href="#">👥 Pacientes</a>
+    <a href="historial.html">📋 Historial</a>
+    <a href="#">💊 Medicamentos</a>
+    <a href="#">⚙️ Configuración</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Dashboard</h1>
+      <span>Dr. Carlos Ramírez &nbsp;|&nbsp; Lunes, 9 de junio de 2025</span>
+    </div>
+
+    <!-- CARDS RESUMEN -->
+    <div class="cards">
+      <div class="card">
+        <div class="label">Pacientes hoy</div>
+        <div class="number">8</div>
+        <div class="sub">3 por cita · 5 por turno</div>
+      </div>
+      <div class="card">
+        <div class="label">Consultas atendidas</div>
+        <div class="number">3</div>
+        <div class="sub">5 pendientes</div>
+      </div>
+      <div class="card">
+        <div class="label">Seguimientos pendientes</div>
+        <div class="number">2</div>
+        <div class="sub">Vencen esta semana</div>
+      </div>
+    </div>
+
+    <!-- TABLA DE CITAS DEL DÍA -->
+    <div class="section-title">Pacientes del día</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Paciente</th>
+          <th>Motivo</th>
+          <th>Tipo</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>08:00</td>
+          <td>Ana Pérez</td>
+          <td>Control diabetes</td>
+          <td><span class="badge azul">Cita</span></td>
+          <td><span class="badge verde">Atendida</span></td>
+          <td><button class="btn btn-outline">Ver</button></td>
+        </tr>
+        <tr>
+          <td>08:30</td>
+          <td>Luis Gómez</td>
+          <td>Dolor de cabeza</td>
+          <td><span class="badge azul">Cita</span></td>
+          <td><span class="badge verde">Atendida</span></td>
+          <td><button class="btn btn-outline">Ver</button></td>
+        </tr>
+        <tr>
+          <td>—</td>
+          <td>Carmen Ruiz</td>
+          <td>Fiebre 3 días</td>
+          <td><span class="badge gris">Turno</span></td>
+          <td><span class="badge verde">Atendida</span></td>
+          <td><button class="btn btn-outline">Ver</button></td>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td>Pedro Díaz</td>
+          <td>Chequeo general</td>
+          <td><span class="badge azul">Cita</span></td>
+          <td><span class="badge amarillo">En espera</span></td>
+          <td><button class="btn btn-primary" onclick="mostrarFormulario()">Atender</button></td>
+        </tr>
+        <tr>
+          <td>—</td>
+          <td>Rosa Núñez</td>
+          <td>Dolor abdominal</td>
+          <td><span class="badge gris">Turno</span></td>
+          <td><span class="badge amarillo">En espera</span></td>
+          <td><button class="btn btn-primary">Atender</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- FORMULARIO DE CONSULTA -->
+    <div id="formulario" style="display:none;">
+      <div class="section-title">📝 Registrar Consulta — Pedro Díaz</div>
+
+      <!-- DATOS DEL PACIENTE -->
+      <div class="form-section">
+        <div class="form-section-title">Datos del paciente</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" value="Pedro Díaz" readonly />
+          </div>
+          <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="text" value="12/04/1978" readonly />
+          </div>
+          <div class="form-group">
+            <label>Cédula / ID</label>
+            <input type="text" value="001-0012345-6" readonly />
+          </div>
+          <div class="form-group">
+            <label>Tipo de consulta</label>
+            <select>
+              <option>Cita programada</option>
+              <option>Turno espontáneo</option>
+              <option>Control / Seguimiento</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOTIVO -->
+      <div class="form-section">
+        <div class="form-section-title">Motivo y enfermedad actual</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Motivo de consulta</label>
+            <input type="text" placeholder="Ej: Chequeo general anual" />
+          </div>
+          <div class="form-group">
+            <label>Tiempo de evolución</label>
+            <input type="text" placeholder="Ej: 3 días, 2 semanas" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Descripción de la enfermedad actual</label>
+          <textarea placeholder="Descripción detallada de los síntomas y su evolución..."></textarea>
+        </div>
+      </div>
+
+      <!-- SIGNOS VITALES -->
+      <div class="form-section">
+        <div class="form-section-title">Signos vitales</div>
+        <div class="signos-grid">
+          <div class="form-group">
+            <label>Tensión arterial</label>
+            <input type="text" placeholder="120/80 mmHg" />
+          </div>
+          <div class="form-group">
+            <label>Frecuencia cardíaca</label>
+            <input type="text" placeholder="72 lpm" />
+          </div>
+          <div class="form-group">
+            <label>Temperatura</label>
+            <input type="text" placeholder="36.5 °C" />
+          </div>
+          <div class="form-group">
+            <label>Peso</label>
+            <input type="text" placeholder="70 kg" />
+          </div>
+          <div class="form-group">
+            <label>Talla</label>
+            <input type="text" placeholder="1.70 m" />
+          </div>
+          <div class="form-group">
+            <label>SpO2</label>
+            <input type="text" placeholder="98%" />
+          </div>
+        </div>
+      </div>
+
+      <!-- EXAMEN FÍSICO -->
+      <div class="form-section">
+        <div class="form-section-title">Examen físico</div>
+        <div class="form-group">
+          <textarea placeholder="Hallazgos del examen físico por sistemas..."></textarea>
+        </div>
+      </div>
+
+      <!-- DIAGNÓSTICO -->
+      <div class="form-section">
+        <div class="form-section-title">Diagnóstico</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Diagnóstico</label>
+            <input type="text" placeholder="Ej: Hipertensión arterial esencial" />
+          </div>
+          <div class="form-group">
+            <label>Código CIE-10</label>
+            <input type="text" placeholder="Ej: I10" />
+          </div>
+          <div class="form-group">
+            <label>Tipo de diagnóstico</label>
+            <select>
+              <option>Presuntivo</option>
+              <option>Definitivo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAN -->
+      <div class="form-section">
+        <div class="form-section-title">Plan de tratamiento</div>
+        <div class="form-group" style="margin-bottom:12px;">
+          <label>Medicamentos recetados</label>
+          <textarea placeholder="Nombre, dosis, vía, frecuencia, duración..."></textarea>
+        </div>
+        <div class="form-group" style="margin-bottom:12px;">
+          <label>Exámenes solicitados</label>
+          <textarea placeholder="Ej: Hemograma completo, glucosa en ayunas..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Indicaciones generales</label>
+          <textarea placeholder="Reposo, dieta, actividad física, otros cuidados..."></textarea>
+        </div>
+      </div>
+
+      <!-- SEGUIMIENTO -->
+      <div class="form-section">
+        <div class="form-section-title">Seguimiento</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Tipo de seguimiento</label>
+            <select>
+              <option>Cita de control</option>
+              <option>Llamada telefónica</option>
+              <option>Alta médica</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Fecha del próximo control</label>
+            <input type="date" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notas de seguimiento</label>
+          <textarea placeholder="Indicaciones especiales para el seguimiento..."></textarea>
+        </div>
+      </div>
+
+      <!-- BOTONES -->
+      <div class="form-actions">
+        <button class="btn btn-outline" onclick="ocultarFormulario()">Cancelar</button>
+        <button class="btn btn-outline">🖨️ Imprimir receta</button>
+        <button class="btn btn-primary">💾 Guardar consulta</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function mostrarFormulario() {
+      document.getElementById('formulario').style.display = 'block';
+      document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
+    }
+    function ocultarFormulario() {
+      document.getElementById('formulario').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

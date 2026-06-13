@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediConsulta – Historial</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <h2>🩺 MediConsulta</h2>
+    <a href="index.html">📊 Dashboard</a>
+    <a href="#">📅 Citas</a>
+    <a href="#">👥 Pacientes</a>
+    <a href="historial.html" class="active">📋 Historial</a>
+    <a href="#">💊 Medicamentos</a>
+    <a href="#">⚙️ Configuración</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="header">
+      <h1>Historial del paciente</h1>
+      <a href="index.html"><button class="btn btn-outline">← Volver al Dashboard</button></a>
+    </div>
+
+    <!-- TARJETA DEL PACIENTE -->
+    <div class="patient-card">
+      <div class="patient-avatar">PD</div>
+      <div class="patient-info">
+        <h2>Pedro Díaz</h2>
+        <p>Fecha de nacimiento: 12/04/1978 &nbsp;·&nbsp; Cédula: 001-0012345-6 &nbsp;·&nbsp; Tipo de sangre: O+</p>
+        <p>Teléfono: 809-555-1234 &nbsp;·&nbsp; Seguro: ARS Universal</p>
+        <div class="alert-tags">
+          <span class="alert-tag">⚠️ Alergia: Penicilina</span>
+          <span class="alert-tag">⚠️ HTA</span>
+        </div>
+      </div>
+      <div style="margin-left:auto;">
+        <button class="btn btn-primary" onclick="window.location='index.html'">+ Nueva consulta</button>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active">Consultas</div>
+      <div class="tab">Diagnósticos activos</div>
+      <div class="tab">Medicamentos</div>
+      <div class="tab">Exámenes</div>
+      <div class="tab">Seguimientos</div>
+    </div>
+
+    <!-- LISTA DE CONSULTAS -->
+    <div class="section-title">Consultas registradas</div>
+
+    <div class="consulta-item">
+      <div>
+        <div class="consulta-fecha">05/06/2025 · Cita programada · Dr. Carlos Ramírez</div>
+        <div class="consulta-motivo">Control de hipertensión arterial</div>
+        <div class="consulta-dx">Dx: Hipertensión arterial esencial (I10) — Definitivo</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+        <span class="badge verde">Atendida</span>
+        <button class="btn btn-outline" onclick="toggleDetalle('d1')">Ver detalle</button>
+      </div>
+    </div>
+
+    <!-- DETALLE EXPANDIBLE -->
+    <div id="d1" style="display:none; background:white; border-radius:10px; padding:20px 24px; margin-bottom:12px; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Motivo:</strong> Control de presión arterial y revisión de medicamentos.</p>
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Signos vitales:</strong> TA 140/90 mmHg · FC 78 lpm · T° 36.4°C · Peso 82 kg · SpO2 97%</p>
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Plan:</strong> Losartán 50mg cada 12h. Dieta hiposódica. Ejercicio moderado 30 min/día.</p>
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Seguimiento:</strong> Control en 30 días — 05/07/2025</p>
+      <div style="display:flex; gap:8px;">
+        <span class="badge amarillo">Seguimiento pendiente</span>
+        <button class="btn btn-outline" style="font-size:12px; padding:4px 12px;">🖨️ Imprimir</button>
+      </div>
+    </div>
+
+    <div class="consulta-item">
+      <div>
+        <div class="consulta-fecha">10/03/2025 · Turno espontáneo · Dr. Carlos Ramírez</div>
+        <div class="consulta-motivo">Dolor de cabeza y mareos</div>
+        <div class="consulta-dx">Dx: Cefalea tensional (G44.2) — Definitivo</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+        <span class="badge verde">Atendida</span>
+        <button class="btn btn-outline" onclick="toggleDetalle('d2')">Ver detalle</button>
+      </div>
+    </div>
+
+    <div id="d2" style="display:none; background:white; border-radius:10px; padding:20px 24px; margin-bottom:12px; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Motivo:</strong> Paciente refiere cefalea de 2 días de evolución, de intensidad moderada, sin fiebre.</p>
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Signos vitales:</strong> TA 130/85 mmHg · FC 82 lpm · T° 36.6°C · Peso 82 kg · SpO2 98%</p>
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Plan:</strong> Ibuprofeno 400mg c/8h por 3 días. Reposo relativo. Hidratación adecuada.</p>
+      <p style="font-size:13px; color:#4a5568;"><strong>Seguimiento:</strong> Alta — sin control programado.</p>
+      <div style="margin-top:10px;">
+        <span class="badge verde">Alta</span>
+      </div>
+    </div>
+
+    <div class="consulta-item">
+      <div>
+        <div class="consulta-fecha">14/01/2025 · Cita programada · Dr. Carlos Ramírez</div>
+        <div class="consulta-motivo">Chequeo general anual</div>
+        <div class="consulta-dx">Dx: Paciente sano — sin patología activa</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+        <span class="badge verde">Atendida</span>
+        <button class="btn btn-outline" onclick="toggleDetalle('d3')">Ver detalle</button>
+      </div>
+    </div>
+
+    <div id="d3" style="display:none; background:white; border-radius:10px; padding:20px 24px; margin-bottom:12px; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Motivo:</strong> Chequeo preventivo anual sin síntomas.</p>
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Signos vitales:</strong> TA 125/80 mmHg · FC 70 lpm · T° 36.5°C · Peso 80 kg · SpO2 99%</p>
+      <p style="font-size:13px; color:#4a5568; margin-bottom:12px;"><strong>Plan:</strong> Exámenes solicitados: hemograma, glucosa, perfil lipídico. Control en 1 año.</p>
+      <div style="margin-top:10px;">
+        <span class="badge gris">Control anual</span>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function toggleDetalle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
